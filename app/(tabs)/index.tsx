@@ -22,7 +22,7 @@ container: {
 
   },
 text: {
-  color: '#0c0c0c',
+  color: '#020202',
   },
   button: {
     fontSize: 20,
