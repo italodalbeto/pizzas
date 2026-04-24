@@ -1,20 +1,20 @@
 import { Tabs } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 export default function TabLayout() {
   return (
    <Tabs
       screenOptions={{
-        tabBarActiveTintColor: '#110d0d',
+        tabBarActiveTintColor: '#ffffffd3',
         headerStyle: {
           backgroundColor: '#063b09',
         },
         headerShadowVisible: false,
-        headerTintColor: '#fff',
+        headerTintColor: '#fffefe',
         tabBarStyle: {
-          backgroundColor: '#25292e',
+          backgroundColor: '#000000',
         },
       }}
     >
@@ -33,6 +33,15 @@ export default function TabLayout() {
         title: 'Cardápio',
         tabBarIcon: ({ color, focused }) => (
           <MaterialCommunityIcons name={focused ? 'menu-open' : 'menu-close'} color={color} size={24}/>
+         ),
+       }}
+      />
+       <Tabs.Screen
+       name= "toDoList"
+       options={{
+        title: 'Pizzas Favoritas',
+        tabBarIcon: ({ color, focused }) => (
+          <AntDesign name={focused ? 'caret-left' : 'caret-right'} color={color} size={24}/>
          ),
        }}
       />
