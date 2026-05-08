@@ -1,12 +1,14 @@
 import { Text, View, StyleSheet, Image } from "react-native";
 import { Link } from "expo-router";
 
+
 export default function Index() {
   return (
     <View style={styles.container}>
-      
+     
       {/* Título */}
       <Text style={styles.title}>Pizzaria Nono Romano 🍕</Text>
+
 
       {/* Imagem abaixo do título */}
       <Image
@@ -14,19 +16,23 @@ export default function Index() {
         style={styles.image}
       />
 
+
       {/* Descrição */}
       <Text style={styles.subtitle}>
         As melhores pizzas da cidade, feitas com amor!
       </Text>
+
 
       {/* Botão */}
       <Link href="/about" style={styles.button}>
         <Text style={styles.buttonText}>Ver Cardápio</Text>
       </Link>
 
+
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -37,6 +43,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 
+
   image: {
     width: 250,
     height: 250,
@@ -44,11 +51,13 @@ const styles = StyleSheet.create({
     marginVertical: 15,
   },
 
+
   title: {
     fontSize: 28,
     fontWeight: "bold",
     color: "#d62828",
   },
+
 
   subtitle: {
     fontSize: 16,
@@ -57,6 +66,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
 
+
   button: {
     backgroundColor: "#d62828",
     paddingVertical: 12,
@@ -64,6 +74,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginTop: 20,
   },
+
 
   buttonText: {
     color: "#fff",
