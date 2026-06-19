@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: "bold",
     marginBottom: 20,
-    color: "#d62828",
+    color: "#dd1b1b",
   },
 
   card: {
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#d62828",
+    color: "#c50909",
   },
 
    image: {

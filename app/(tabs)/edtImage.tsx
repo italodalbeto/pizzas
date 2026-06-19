@@ -1,19 +1,24 @@
-import { View, StyleSheet } from 'react-native';
+import { ImageSourcePropType, View, StyleSheet } from 'react-native';
 import Button from '@/components/Button';
 import ImageViewer from '@/components/ImageViewer';
 import * as ImagePicker from 'expo-image-picker';
 import { useState } from 'react';
 import IconButton from '@/components/IconButton';
 import CircleButton from '@/components/CircleButton';
+import EmojiPicker from '@/components/EmojiPiker';
+import EmojiList from '@/components/EmojiList';
+
 
 const PlaceholderImage = require('@/assets/images/pizza.webp');
 
 export default function EdtImage() {
 const [selectedImage, setSelectedImage] = useState<string | undefined>(undefined);
 const [showAppOptions, setShowAppOpions] = useState<boolean>(false);
+const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+const [pickedEmoji, setPikerdEmoji] = useState<ImageSourcePropType | undefined>(undefined);
+ 
 
- const pickImageAsync = async () => {
-
+const pickImageAsync = async () => {
   let result = await ImagePicker.launchImageLibraryAsync({
      mediaTypes: ['images'],
      allowsEditing: true,
@@ -24,7 +29,7 @@ const [showAppOptions, setShowAppOpions] = useState<boolean>(false);
     setSelectedImage(result.assets[0].uri);
     setShowAppOpions(true);
   } else {
-     alert('You did not select any image.');
+     alert('Você não selecionou nenhuma imagem.');
   }
 };
  const onReset = () => {
@@ -32,7 +37,11 @@ const [showAppOptions, setShowAppOpions] = useState<boolean>(false);
  };
 
   const onAddSticker = () => {
+     setIsModalVisible(true);
+  };
 
+  const onModalClose = () => {
+     setIsModalVisible(false);
   };
 
   const onSaveImageAsync = async () => {
@@ -53,10 +62,13 @@ const [showAppOptions, setShowAppOpions] = useState<boolean>(false);
       </View>
       ) : (
       <View style={styles.footerContainer}>
-        <Button theme="primary" label="escolha uma foto" />
+        <Button theme="primary" label="escolha uma foto" onPress={pickImageAsync} />
         <Button label="use a foto" onPress={()  => setShowAppOpions(true)} />
       </View>
       )}
+      <EmojiPicker isVisible={isModalVisible} onClose={onModalClose}>
+        <EmojiList onSelect={setPikerdEmoji} onCloseModal={onModalClose} />
+      </EmojiPicker>
     </View>
   );
 }
@@ -81,6 +93,7 @@ const styles = StyleSheet.create({
     bottom: 80,
   },
   optionsRow: {
- 
+    alignItems: 'center',
+    flexDirection: 'row',
   },
 });
