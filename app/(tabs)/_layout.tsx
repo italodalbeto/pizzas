@@ -2,6 +2,8 @@ import { Tabs } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AntDesign from '@expo/vector-icons/AntDesign';
+import Entypo from '@expo/vector-icons/Entypo';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 export default function TabLayout() {
   return (
@@ -41,10 +43,30 @@ export default function TabLayout() {
        options={{
         title: 'Pizzas Favoritas',
         tabBarIcon: ({ color, focused }) => (
-          <AntDesign name={focused ? 'caret-left' : 'caret-right'} color={color} size={24}/>
+          <MaterialIcons name={focused ? 'favorite' : 'favorite-border'} color={color} size={24}/>
          ),
        }}
       />
+      <Tabs.Screen
+       name= "buscaCep"
+       options={{
+        title: 'Busca Pizzaria',
+        tabBarIcon: ({ color, focused }) => (
+          <Entypo name={focused ? 'location' : 'location-pin'} color={color} size={24}/>
+         ),
+       }}
+      />
+      <Tabs.Screen
+       name= "editImage"
+       options={{
+        title: 'editImage',
+        tabBarIcon: ({ color, focused }) => (
+          <Ionicons name={focused ? 'camera' : 'camera-outline'} color={color} size={24}/>
+         ),
+       }}
+      />
+
+
     </Tabs> 
   );
 }

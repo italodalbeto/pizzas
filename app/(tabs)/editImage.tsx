@@ -102,7 +102,7 @@ export default function EditImage() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#f8f8f8',
     alignItems: 'center',
   },
 

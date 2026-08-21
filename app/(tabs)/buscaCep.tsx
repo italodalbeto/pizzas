@@ -2,17 +2,19 @@ import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useBuscaCep } from '@/hooks/useBuscaCep';
 
 export default function BuscaCEP() {
-  const { cep, setCep, endereco, buscarCEP } = useBuscaCep();
+  const { cep, setCep,
+    
+    endereco, buscarCEP } = useBuscaCep();
 
   return (
     <View style={styles.container}>
-      <Text>Consulte seu CEP</Text>
+      <Text>Consulte sua Pizzaria</Text>
 
       <TextInput
         style={styles.textInput}
         value={cep}
         onChangeText={setCep}
-        placeholder="Digite o CEP"
+        placeholder="Digite o CEP da Pizzaria"
         keyboardType="numeric"
       />
 
@@ -21,6 +23,7 @@ export default function BuscaCEP() {
       <Button
         title="Buscar"
         onPress={buscarCEP}
+        color="#e7121c"
       />
 
       {endereco.logradouro !== '' && (

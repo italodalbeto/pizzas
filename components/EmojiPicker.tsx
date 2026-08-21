@@ -11,7 +11,7 @@ export default function EmojiPicker({ isVisible, children, onClose }: Props){
     return ( 
            <View>
             <Modal animationType="slide" transparent={true} visible={isVisible}>
-             <view style={styles.modalContent}>
+             <View style={styles.modalContent}>
                 <View style={styles.titleContainer}>
                   <Text style={styles.title}>Choose a stiker</Text>
                    <Pressable onPress={onClose}>
@@ -19,7 +19,7 @@ export default function EmojiPicker({ isVisible, children, onClose }: Props){
                  </Pressable>
                 </View>
                 {children}
-              </view>   
+              </View>   
             </Modal>
         </View>
     );
